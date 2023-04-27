@@ -31,7 +31,9 @@
 
       packages.x86_64-linux = {
         manual = (import ./docs { inherit pkgs; }).manual;
-      };
+      } // (pkgs.lib.mapAttrs
+        (device: robotnixSystem: robotnixSystem.config.build.debugEnterEnv)
+        exampleImages);
 
       devShells.x86_64-linux = {
         default = pkgs.mkShell {
@@ -66,18 +68,21 @@
             inherit device;
             flavor = "grapheneos";
             apv.enable = false;
-            adevtool.hash = "sha256-aA54o2FPfI+9iDLiUaGJAqMzUuNyWwCuWOoa1lADKuM=";
+            #adevtool.hash = "sha256-aA54o2FPfI+9iDLiUaGJAqMzUuNyWwCuWOoa1lADKuM=";
+            adevtool.hash = "sha256-baXB2Dd24Qd66bWk6+wh8Jr7lLKPVIPLp92YquKWQ68=";
+            #deviceFamily = "redfin";
             signing = {
               enable = true;
-              keyStorePath = ./test-keys;
+              keyStorePath = ./keys;
               sopsDecrypt = {
                 enable = true;
                 sopsConfig = ./.sops.yaml;
+                #key = /home/jhoffer/.config/sops/age/robonix.txt;
                 key = ./.keystore-private-keys.txt;
                 keyType = "age";
               };
             };
           };
-        }) [ "bluejay" "panther" "cheetah" ]));
+        }) [ "redfin" "bluejay" ]));
     };
 }

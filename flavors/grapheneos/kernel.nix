@@ -11,6 +11,8 @@ let
     "coral" = "build/build.sh";
     "sunfish" = "build/build.sh";
     "redbull" = "build/build.sh";
+    "redfin" = "build/build.sh";
+    #"redfin" = "build_redbull.sh";
     "raviole" = "build_slider.sh";
     "bluejay" = "build_bluejay.sh";
     "pantah" = "build_cloudripper.sh";
@@ -20,7 +22,12 @@ let
   kernelPrefix = if (config.androidVersion >= 13) then "kernel/android" else "kernel/google";
   grapheneOSRelease = "${config.apv.buildID}.${config.buildNumber}";
 
-  buildConfigVar = "private/msm-google/build.config.${config.deviceFamily}";
+  buildConfigFor = {
+    "redfin" = "redbull.vintf";
+    "bluejay" = "bluejay";
+  };
+
+  buildConfigVar = "private/msm-google/build.config.${buildConfigFor.${config.deviceFamily}}";
   subPaths = prefix: (lib.filter (name: (lib.hasPrefix prefix name)) (lib.attrNames config.source.dirs));
   kernelSources = subPaths sourceRelpath;
   unpackSrc = name: src: ''
@@ -68,7 +75,9 @@ let
     "bluejay" = "bluejay";
     "panther" = "pantah";
     "cheetah" = "pantah";
+    "redbull" = "redbull";
   }.${config.device} or config.device;
+  # I think this will miss redbull-kernel/vintf/
   builtRelpath = "device/google/${builtKernelName}-kernel";
 
   kernel =
@@ -145,12 +154,18 @@ let
           set -eo pipefail
           ${preBuild}
 
+          echo "HERE"
+          echo $(pwd)
+          find . -type f
+          cat ${buildConfigVar}
           ${if postRaviole then "LTO=full BUILD_AOSP_KERNEL=1" else "BUILD_CONFIG=${buildConfigVar}"} \
             cflags="--sysroot /usr " \
             LD_LIBRARY_PATH="/usr/lib/:/usr/lib32/" \
-            ./${buildScript} \
-            ${lib.optionalString useCodenameArg builtKernelName}
+            ./${buildScript}
+            #${lib.optionalString useCodenameArg builtKernelName}
 
+          echo "HERE2"
+          find . -type f
           ${postBuild}
         '';
 
