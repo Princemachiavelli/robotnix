@@ -5,6 +5,7 @@ let
     mkIf mkMerge mkDefault;
 
   clangVersion = "r450784e";
+
   postRedfin = lib.elem config.deviceFamily [ "redfin" "barbet" "raviole" "bluejay" "pantah" ];
   postRaviole = lib.elem config.deviceFamily [ "raviole" "bluejay" "pantah" ];
   buildScriptFor = {
@@ -23,7 +24,8 @@ let
   grapheneOSRelease = "${config.apv.buildID}.${config.buildNumber}";
 
   buildConfigFor = {
-    "redfin" = "redbull.vintf";
+    #"redfin" = "redbull.vintf";
+    "redfin" = "redbull.no-cfi";
     "bluejay" = "bluejay";
   };
 
@@ -157,12 +159,11 @@ let
           echo "HERE"
           echo $(pwd)
           find . -type f
-          cat ${buildConfigVar}
-          ${if postRaviole then "LTO=full BUILD_AOSP_KERNEL=1" else "BUILD_CONFIG=${buildConfigVar}"} \
+          ${if postRaviole then "LTO=full BUILD_AOSP_KERNEL=1" else "LTO=thin BUILD_CONFIG=${buildConfigVar}"} \
             cflags="--sysroot /usr " \
             LD_LIBRARY_PATH="/usr/lib/:/usr/lib32/" \
-            ./${buildScript}
-            #${lib.optionalString useCodenameArg builtKernelName}
+            ./${buildScript} \
+            ${lib.optionalString useCodenameArg builtKernelName}
 
           echo "HERE2"
           find . -type f
