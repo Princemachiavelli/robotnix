@@ -71,6 +71,7 @@
             #adevtool.hash = "sha256-aA54o2FPfI+9iDLiUaGJAqMzUuNyWwCuWOoa1lADKuM=";
             adevtool.hash = "sha256-baXB2Dd24Qd66bWk6+wh8Jr7lLKPVIPLp92YquKWQ68=";
             #deviceFamily = "redfin";
+            cts-profile-fix.enable = true;
             signing = {
               enable = true;
               keyStorePath = ./keys;

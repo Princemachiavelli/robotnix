@@ -57,6 +57,15 @@ let
         ${adevtool} ota-firmware \
           vendor/adevtool/config/${device}.yml \
           -f ota.zip
+
+          cat >>vendor/google_devices/${device}.mk <<-EOH
+          # this gets set in the vendored makefiles via adevtool
+          # it only gets used if the cts-profile-fix.enable option is set
+          ifneq (\$(PRODUCT_OVERRIDE_FINGERPRINT),)
+          ADDITIONAL_SYSTEM_PROPERTIES += \
+              ro.build.stock_fingerprint=\$(PRODUCT_OVERRIDE_FINGERPRINT)
+          endif
+          EOH
       '';
 
       installPhase = ''

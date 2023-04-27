@@ -1,0 +1,59 @@
+--- a/core/java/com/android/internal/gmscompat/AttestationHooks.java
++++ b/core/java/com/android/internal/gmscompat/AttestationHooks.java
+@@ -22,6 +22,7 @@
+ import android.util.Log;
+ 
+ import java.lang.reflect.Field;
++import java.util.Arrays;
+ 
+ /** @hide */
+ public final class AttestationHooks {
+@@ -30,6 +31,8 @@ public final class AttestationHooks {
+     private static final String PRODUCT_STOCK_FINGERPRINT =
+             SystemProperties.get("ro.build.stock_fingerprint");
+ 
++    private static volatile boolean sIsGms = false;
++
+     private AttestationHooks() { }
+ 
+     private static void setBuildField(String key, String value) {
+@@ -57,7 +60,20 @@ private static void spoofBuildGms() {
+ 
+     public static void initApplicationBeforeOnCreate(Application app) {
+         if (GmsInfo.PACKAGE_GMS_CORE.equals(app.getPackageName())) {
++            sIsGms = true;
+             spoofBuildGms();
+         }
+     }
++
++    private static boolean isCallerSafetyNet() {
++        return Arrays.stream(Thread.currentThread().getStackTrace())
++                .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
++    }
++
++    public static void onEngineGetCertificateChain() {
++        // Check stack for SafetyNet
++        if (sIsGms && isCallerSafetyNet()) {
++            throw new UnsupportedOperationException();
++        }
++    }
+ }
+--- a/keystore/java/android/security/keystore2/AndroidKeyStoreSpi.java
++++ b/keystore/java/android/security/keystore2/AndroidKeyStoreSpi.java
+@@ -42,6 +42,7 @@
+ import android.util.Log;
+ 
+ import com.android.internal.annotations.VisibleForTesting;
++import com.android.internal.gmscompat.AttestationHooks;
+ 
+ import java.io.ByteArrayInputStream;
+ import java.io.IOException;
+@@ -164,6 +165,8 @@ private KeyEntryResponse getKeyMetadata(String alias) {
+ 
+     @Override
+     public Certificate[] engineGetCertificateChain(String alias) {
++        AttestationHooks.onEngineGetCertificateChain();
++
+         KeyEntryResponse response = getKeyMetadata(alias);
+ 
+         if (response == null || response.metadata.certificate == null) {

@@ -56,6 +56,7 @@ let
       ./modules/adevtool.nix
       ./modules/assertions.nix
       ./modules/base.nix
+      ./modules/cts-fix.nix
       ./modules/emulator.nix
       ./modules/envpackages.nix
       ./modules/etc.nix

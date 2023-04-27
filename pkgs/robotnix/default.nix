@@ -18,11 +18,11 @@ let
     ${openssl}/bin/openssl x509 -noout -fingerprint -sha256 -in ${cert} | awk -F"=" '{print "\"" $2 "\"" }' | sed 's/://g' > $out
   '')));
 
-  sha256Fingerprint = keysFun: file: (import (runCommand "sha256-fingerprint" {
+  sha256Fingerprint = keysFun: file: (lib.readFile (runCommand "sha256-fingerprint" {
     nativeBuildInputs = with pkgs; [ sops age gnupg ];
-  }) (keysFun ''
-    sha256sum ${file} | tr '[:lower:]' '[:upper:]' > $out
-  ''));
+  } (keysFun ''
+    sha256sum ${file} | cut -d' ' -f 1 | tr '[:lower:]' '[:upper:]' | tr -d '\n' > $out
+  '')));
 
   # getName snippet originally from nixpkgs/pkgs/build-support/trivial-builders.nix
   getName = fname: apk:
