@@ -1,12 +1,12 @@
 {
   "aosp": {
-    "dateTime": 1681169083,
+    "dateTime": 1682122586,
     "groups": [
       "partner"
     ],
-    "rev": "2ce43f87a1d5d5788b2ec0788f1d4f2ec9ad6c9c",
-    "revisionExpr": "2ce43f87a1d5d5788b2ec0788f1d4f2ec9ad6c9c",
-    "sha256": "0lfbsrbl8lgyq17q597zpmkvi3mcjma8kl2r5wd4n0ir7w5c1fng",
+    "rev": "7ec3b8565b6ee6f6d15a16a07c3ed6688d68266c",
+    "revisionExpr": "7ec3b8565b6ee6f6d15a16a07c3ed6688d68266c",
+    "sha256": "0c169bb4gf37qps0x5mnjs509zw0zf3rw4qcvjwkzwya8jvxqjpg",
     "url": "https://github.com/GrapheneOS/kernel_common-5.10"
   },
   "build/bazel_common_rules": {
@@ -86,9 +86,9 @@
         "src": "static_analysis"
       }
     ],
-    "rev": "1a5fc0334f6f467dc257f0f02743828b354b8197",
-    "revisionExpr": "1a5fc0334f6f467dc257f0f02743828b354b8197",
-    "sha256": "1ypqvlxz8h76vdsrnz34j2fjrjpsj07zfbw2p61z6sb9s4yjpl1k",
+    "rev": "1ffcf8899cbf89cdd31cace2254cbbc7bbb8c785",
+    "revisionExpr": "1ffcf8899cbf89cdd31cace2254cbbc7bbb8c785",
+    "sha256": "1kzn2vc5bi6xzr6ss705c9bxyh280v82g10zcdh9kdyydx6pcpsv",
     "url": "https://github.com/GrapheneOS/kernel_build-pantah"
   },
   "common-modules/virtual-device": {
@@ -448,7 +448,7 @@
     "url": "https://android.googlesource.com/kernel/google-modules/wlan/wlan_ptracker"
   },
   "private/gs-google": {
-    "dateTime": 1681169668,
+    "dateTime": 1682993456,
     "groups": [
       "partner"
     ],
@@ -478,9 +478,9 @@
         "src": "."
       }
     ],
-    "rev": "bce05a4c9bd75c3813374bcc3222c2a0845ae449",
-    "revisionExpr": "bce05a4c9bd75c3813374bcc3222c2a0845ae449",
-    "sha256": "1qyza69qagq0zbqzl4f710x0sp08p2lzm9p1i587avsvfn4gbsil",
+    "rev": "5be63d0fa212fcc49e3d0712ac061b338964b90f",
+    "revisionExpr": "5be63d0fa212fcc49e3d0712ac061b338964b90f",
+    "sha256": "10jn4l12jrxrz00ih3p7cdlm60s3bw6879sh573a11j1xvnb1wwi",
     "url": "https://github.com/GrapheneOS/kernel_gs-pantah"
   },
   "tools/mkbootimg": {

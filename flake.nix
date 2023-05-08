@@ -84,6 +84,6 @@
               };
             };
           };
-        }) [ "redfin" "bluejay" ]));
+        }) [ "redfin" "bramble" "oriole" "raven" "bluejay" "panther" "cheetah" ]));
     };
 }
