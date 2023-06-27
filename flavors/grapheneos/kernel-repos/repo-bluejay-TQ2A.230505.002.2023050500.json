@@ -227,6 +227,31 @@
     "sha256": "0lsa07208c3p07sqs4r81ccpr7zmjq7702mm4pkmhqfrf358rzp3",
     "url": "https://android.googlesource.com/platform/prebuilts/misc"
   },
+  "private/devices/google/bluejay": {
+    "dateTime": 1677056734,
+    "groups": [
+      "bluejay",
+      "partner"
+    ],
+    "linkfiles": [
+      {
+        "dest": "build_bluejay.sh",
+        "src": "build_bluejay.sh"
+      },
+      {
+        "dest": "update_symbol_list_bluejay.sh",
+        "src": "update_symbol_list_bluejay.sh"
+      },
+      {
+        "dest": "private/gs-google/arch/arm64/boot/dts/google/devices/bluejay",
+        "src": "dts"
+      }
+    ],
+    "rev": "70410309cbe8991f6e0c80b1f355b587315dd491",
+    "revisionExpr": "70410309cbe8991f6e0c80b1f355b587315dd491",
+    "sha256": "149s0y97i98bflmpf4zx0b6rfxfl19wlxbdqjwzxv7h5gd1w1jsn",
+    "url": "https://android.googlesource.com/kernel/devices/google/bluejay"
+  },
   "private/google-modules/amplifiers": {
     "dateTime": 1673516666,
     "groups": [
@@ -318,13 +343,13 @@
     "url": "https://android.googlesource.com/kernel/google-modules/fingerprint/goodix"
   },
   "private/google-modules/gpu": {
-    "dateTime": 1674248191,
+    "dateTime": 1678230716,
     "groups": [
       "partner"
     ],
-    "rev": "2951d3516e2e38af8f9aa377c325147e4a9ee9b9",
-    "revisionExpr": "2951d3516e2e38af8f9aa377c325147e4a9ee9b9",
-    "sha256": "0idjiapx5rf6x01pz298x5v00akjx2v622i0p8lgjj9hlm3anqaq",
+    "rev": "1fd929204d47d8509f61db9a19cc1063b0812768",
+    "revisionExpr": "1fd929204d47d8509f61db9a19cc1063b0812768",
+    "sha256": "04h9ldgz3vgkyp8xikxgvw5grr4dx4g0kznvjwgwb81aqs0yqyk1",
     "url": "https://github.com/GrapheneOS/kernel_google-modules_gpu-gs101"
   },
   "private/google-modules/lwis": {

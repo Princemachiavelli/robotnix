@@ -375,9 +375,13 @@ in
         if [ -n $GNUPGHOME ]; then export HOME=$(dirname $GNUPGHOME); fi
 
         (cd $KEYSDIR
+        set -x
+        TMPDIR=$(mktemp -d)
+        ${lib.optionalString config.signing.sopsDecrypt.enable "ln -s ${config.signing.sopsDecrypt.sopsConfig} $TMPDIR/.sops.yaml"}
         for f in `find . -type f`; do
-          mkdir -p $(dirname $NEW_KEYSDIR/''${f#./})
-          ${if config.signing.sopsDecrypt.enable then "sops --config ${config.signing.sopsDecrypt.sopsConfig} -d $f >" else "cp $f"} $NEW_KEYSDIR/''${f#./}
+          f=''${f#./}
+          mkdir -p $(dirname $NEW_KEYSDIR/$f)
+          ${if config.signing.sopsDecrypt.enable then "sops --verbose --config $TMPDIR/.sops.yaml -d $(pwd)/$f >" else "cp $f"} $NEW_KEYSDIR/$f
         done)
 
         # now set the new KEYSDIR and run the script
