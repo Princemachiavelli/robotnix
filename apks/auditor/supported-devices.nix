@@ -6,4 +6,5 @@
   "redfin" # Pixel 5
   "barbet" # Pixel 5a (5G)
   "tangorpro" # Pixel Tablet
+  "felix" # Pixel Fold
 ]

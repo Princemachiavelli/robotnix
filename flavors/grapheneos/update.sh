@@ -10,13 +10,16 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 _KERNEL_PREFIX=${KERNEL_PREFIX:-kernel/google}
 
+REFTYPE="$1"; shift;
+
 args=(
     --cache-search-path ../../
-    --ref-type tag
+    --ref-type "$REFTYPE"
     --project-fetch-submodules "${_KERNEL_PREFIX}/redbull"
     --project-fetch-submodules "${_KERNEL_PREFIX}/raviole"
     --project-fetch-submodules "${_KERNEL_PREFIX}/pantah"
     --project-fetch-submodules "${_KERNEL_PREFIX}/tangorpro"
+    --project-fetch-submodules "${_KERNEL_PREFIX}/felix"
     "https://github.com/GrapheneOS/platform_manifest"
     "$@"
 )

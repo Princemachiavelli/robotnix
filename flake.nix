@@ -61,7 +61,7 @@
               };
             };
           };
-        }) [ "redfin" "bramble" "oriole" "raven" "bluejay" "panther" "cheetah" "tangorpro" ]));
+        }) [ "redfin" "bramble" "oriole" "raven" "bluejay" "panther" "cheetah" "tangorpro" "felix" ]));
 
       in rec {
       # robotnixSystem evaluates a robotnix configuration

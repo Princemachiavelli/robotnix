@@ -10,7 +10,7 @@ let
   upstreamParams = import ./upstream-params.nix;
   grapheneOSRelease = "${config.apv.buildID}.${upstreamParams.buildNumber}";
 
-  phoneDeviceFamilies = [ "crosshatch" "bonito" "coral" "sunfish" "redfin" "barbet" "bluejay" "pantah" "tangorpro" ];
+  phoneDeviceFamilies = [ "crosshatch" "bonito" "coral" "sunfish" "redfin" "barbet" "bluejay" "pantah" "tangorpro" "felix" ];
   supportedDeviceFamilies = phoneDeviceFamilies ++ [ "generic" ];
   kernelPrefix = if config.androidVersion >= 13 then "kernel/android" else "kernel/google";
 
@@ -28,6 +28,7 @@ let
     "panther" = "pantah";
     "cheetah" = "pantah";
     "tangorpro" = "tangorpro";
+    "felix" = "felix";
   }.${config.device} or config.deviceFamily;
   kernelSourceRelpath = "${kernelPrefix}/${kernelRepoName}";
   kernelSources = lib.mapAttrs'
@@ -58,6 +59,7 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
     apv.enable = mkIf (config.androidVersion <= 12 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
     apv.buildID = {
       "tangorpro" = "TQ3A.230605.009.A1";
+      "felix" = "TQ3C.230605.010.C1";
     }.${config.device};
     adevtool.enable = mkIf (config.androidVersion >= 13 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
     adevtool.buildID = config.apv.buildID;
