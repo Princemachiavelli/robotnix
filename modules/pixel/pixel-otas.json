@@ -1,5 +1,53 @@
 [
   {
+    "device": "tangorpro",
+    "version": "13.0.0 (TD2A.230203.028, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/tangorpro-ota-td2a.230203.028-62304a0f.zip",
+    "sha256": "62304a0f1555abf279d6ecfdae6e08051240833565877f97a24d4b2aecc349d7"
+  },
+  {
+    "device": "tangorpro",
+    "version": "13.0.0 (TQ3A.230605.009.A1, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/tangorpro-ota-tq3a.230605.009.a1-19ab82f9.zip",
+    "sha256": "19ab82f9b22d4632b03394d6454f40002294c2821216e9bf9bd1bc4f4c1d7da5"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TD4A.221205.042, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-td4a.221205.042-622d0e17.zip",
+    "sha256": "622d0e17339aa403fd701f5ff13a9d6f707577fc8f6973604f0fed4da107320c"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TD4A.221205.042.A1, May 2023, EMEA)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-td4a.221205.042.a1-1e8b7f7f.zip",
+    "sha256": "1e8b7f7fd8e8a79ed5a03c0effe95c4cd4188f94783d7c23b50f2acda613d284"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TD4A.221205.042.B1, May 2023, Verizon)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-td4a.221205.042.b1-c44be940.zip",
+    "sha256": "c44be940481b097df4bb60d61a1b869144eeb44329e4f7b9b6ce2648a8c6d8af"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TQ2B.230505.005.A1, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-tq2b.230505.005.a1-766dbd16.zip",
+    "sha256": "766dbd165309a3d90bd367dd73fd98a7b00799a1f7ff9834bca4f31b7a0869b6"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TQ3A.230605.012, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-tq3a.230605.012-e19c0797.zip",
+    "sha256": "e19c079729d43d6beda740c5bd13e4f0a399bfa439af5df3f8cc3163c17a8542"
+  },
+  {
+    "device": "lynx",
+    "version": "13.0.0 (TQ3A.230605.012.A1, Jun 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/lynx-ota-tq3a.230605.012.a1-ce8c3f46.zip",
+    "sha256": "ce8c3f46dd84ee047cf47e26c49c63800fe28e09253f756e7e5de104901a1adf"
+  },
+  {
     "device": "cheetah",
     "version": "13.0.0 (TD1A.220804.009.A2, Oct 2022)",
     "url": "https://dl.google.com/dl/android/aosp/cheetah-ota-td1a.220804.009.a2-8138be71.zip",
@@ -90,6 +138,30 @@
     "sha256": "6ac5ff2e14dc16755ea4ea30e6dbe25103b889a36a465194ef943bd0d665b91c"
   },
   {
+    "device": "cheetah",
+    "version": "13.0.0 (TQ2A.230405.003.E1, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/cheetah-ota-tq2a.230405.003.e1-b4cde6a1.zip",
+    "sha256": "b4cde6a1d253d6abadf40179a2693414d558aef37495da19a2335d74e40f53f7"
+  },
+  {
+    "device": "cheetah",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/cheetah-ota-tq2a.230505.002-5b5e4a9c.zip",
+    "sha256": "5b5e4a9c4ce9c9b5c62a0961b8c9eda98eaec1fcf0f4e14fc4642efb7a4a3fd4"
+  },
+  {
+    "device": "cheetah",
+    "version": "13.0.0 (TQ3A.230605.012, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/cheetah-ota-tq3a.230605.012-f32168af.zip",
+    "sha256": "f32168af721ceb8ebab741b94a486dea7bff8a990a694eb290cffe3439617b05"
+  },
+  {
+    "device": "cheetah",
+    "version": "13.0.0 (TQ3A.230605.012.A1, Jun 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/cheetah-ota-tq3a.230605.012.a1-95be1733.zip",
+    "sha256": "95be17331b2c2649a622da9bd7c2630198823bd978c37840b693f5bacf0423e2"
+  },
+  {
     "device": "panther",
     "version": "13.0.0 (TD1A.220804.009.A2, Oct 2022)",
     "url": "https://dl.google.com/dl/android/aosp/panther-ota-td1a.220804.009.a2-1ba82532.zip",
@@ -178,6 +250,30 @@
     "version": "13.0.0 (TQ2A.230305.008.A1, Mar 2023, WINDTRE/Canada)",
     "url": "https://dl.google.com/dl/android/aosp/panther-ota-tq2a.230305.008.a1-afc434be.zip",
     "sha256": "afc434bed2af99f7f07c9d5b12429215872594815d1dc2a15f0244f56746d4a8"
+  },
+  {
+    "device": "panther",
+    "version": "13.0.0 (TQ2A.230405.003.E1, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/panther-ota-tq2a.230405.003.e1-d596b051.zip",
+    "sha256": "d596b051918c538963d96847a1a702df4c885889011fd434c8c011251357f9a0"
+  },
+  {
+    "device": "panther",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/panther-ota-tq2a.230505.002-c3d87694.zip",
+    "sha256": "c3d87694866555cd9c638b4bb0ced0193b9007f1cdf4f444a18c21e87a691600"
+  },
+  {
+    "device": "panther",
+    "version": "13.0.0 (TQ3A.230605.012, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/panther-ota-tq3a.230605.012-9bd4b51f.zip",
+    "sha256": "9bd4b51f1adaebe52d251e1ff34221196c5bdc82c4d4f1015f48fa3a99ce3b34"
+  },
+  {
+    "device": "panther",
+    "version": "13.0.0 (TQ3A.230605.012.A1, Jun 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/panther-ota-tq3a.230605.012.a1-05a274f5.zip",
+    "sha256": "05a274f58609496f59c4d4094bd27bbc077fed96c619654fed44f37f09f0ea7c"
   },
   {
     "device": "bluejay",
@@ -292,6 +388,42 @@
     "version": "13.0.0 (TQ2A.230305.008.F1, Mar 2023, WINDTRE/Canada)",
     "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq2a.230305.008.f1-295d6274.zip",
     "sha256": "295d6274dc3fa0f0087b749dfde65154970d5a68d2f271b71896dae176a3a735"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ2A.230405.003.E1, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq2a.230405.003.e1-160f9d40.zip",
+    "sha256": "160f9d40cfa18252c53d08e40476bbdd8788037ab1174ec1b70cff1acc9f000b"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ2A.230405.003.G1, April 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq2a.230405.003.g1-295da789.zip",
+    "sha256": "295da789cdb79d5628f05962f5a17554c2c510973b74e955d6ef922b34861b35"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq2a.230505.002-3749a0fa.zip",
+    "sha256": "3749a0fac4b30a871d228553a77ab873778cc19b969c64c7f65c986032369ef6"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ2A.230505.002.G1, May 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq2a.230505.002.g1-519eabf6.zip",
+    "sha256": "519eabf689dfd41a7294a0dee5a01a225aa9874e44a0f30e604ce6f5d371a1c0"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ3A.230605.010, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq3a.230605.010-a67dbf36.zip",
+    "sha256": "a67dbf3626dd2f9fd187b83b738b7152b0200fb2bf031c469e00777b47f8b002"
+  },
+  {
+    "device": "bluejay",
+    "version": "13.0.0 (TQ3A.230605.010.A1, Jun 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/bluejay-ota-tq3a.230605.010.a1-9eb9836a.zip",
+    "sha256": "9eb9836a27d0cc85ec583285522fbd025e78db5188baeec51ddbba4e4116e849"
   },
   {
     "device": "oriole",
@@ -498,6 +630,42 @@
     "sha256": "43d2dc22befc051278116bef7e1f43bab1e7a3a0af4adaf9d05f2ba8d6e0d477"
   },
   {
+    "device": "oriole",
+    "version": "13.0.0 (TQ2A.230405.003.E1, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq2a.230405.003.e1-f392292d.zip",
+    "sha256": "f392292d4c6697216cdd28cc2a453c4abeb7fefc9e1eb3362e460c36b5f57c3c"
+  },
+  {
+    "device": "oriole",
+    "version": "13.0.0 (TQ2A.230405.003.G1, April 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq2a.230405.003.g1-ff938f0b.zip",
+    "sha256": "ff938f0bf1bc60d334e18e96bf9b2bec3c0646bc66de9df9eb5a9ea93314892e"
+  },
+  {
+    "device": "oriole",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq2a.230505.002-4efe2e6d.zip",
+    "sha256": "4efe2e6dedbc767c141bd7d91d4b523e286fb856ecdbbb2da6ffe01e660d3be6"
+  },
+  {
+    "device": "oriole",
+    "version": "13.0.0 (TQ2A.230505.002.G1, May 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq2a.230505.002.g1-b8bdef0c.zip",
+    "sha256": "b8bdef0c429834f35e349f895062a4af6045b17ed013a406447fd3fddd5dbb16"
+  },
+  {
+    "device": "oriole",
+    "version": "13.0.0 (TQ3A.230605.010, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq3a.230605.010-8652a4a5.zip",
+    "sha256": "8652a4a5862852552520b953ed62228d911484255d17e1c02cf5daeac8e137ea"
+  },
+  {
+    "device": "oriole",
+    "version": "13.0.0 (TQ3A.230605.010.A1, Jun 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/oriole-ota-tq3a.230605.010.a1-48a477bd.zip",
+    "sha256": "48a477bd54e4d97d62cc1971d1dff2a985c62ddd43b054a3a5e61b4562571d9d"
+  },
+  {
     "device": "raven",
     "version": "12.0.0 (SD1A.210817.015.A4, Oct 2021)",
     "url": "https://dl.google.com/dl/android/aosp/raven-ota-sd1a.210817.015.a4-83028e9c.zip",
@@ -702,6 +870,42 @@
     "sha256": "371c6635360aab39622334977d62c557b9784b7e114b17a6403f74b1e6f616de"
   },
   {
+    "device": "raven",
+    "version": "13.0.0 (TQ2A.230405.003.E1, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq2a.230405.003.e1-944623d9.zip",
+    "sha256": "944623d9c143bfc0660ed216741951417dee2013f319517a43a266af5fa8a3d4"
+  },
+  {
+    "device": "raven",
+    "version": "13.0.0 (TQ2A.230405.003.G1, April 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq2a.230405.003.g1-a5b8d644.zip",
+    "sha256": "a5b8d644394c2704cb0082f265b285297d71830dec342b5be03c9151faede841"
+  },
+  {
+    "device": "raven",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq2a.230505.002-95987a37.zip",
+    "sha256": "95987a37457f23c4f6d5ca8fc0e77bdb2b4d6e96c4da87aeb16c958038037e1c"
+  },
+  {
+    "device": "raven",
+    "version": "13.0.0 (TQ2A.230505.002.G1, May 2023, Verizon, Verizon MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq2a.230505.002.g1-cfe7cf24.zip",
+    "sha256": "cfe7cf24cd8da9045e0d9fb150d98b982918b90c98518d7061fad6d0ba91be02"
+  },
+  {
+    "device": "raven",
+    "version": "13.0.0 (TQ3A.230605.010, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq3a.230605.010-bed12f22.zip",
+    "sha256": "bed12f2214a8ae56613db267b67826c2ccf892ac9cf951df40f95e5f1fb1721a"
+  },
+  {
+    "device": "raven",
+    "version": "13.0.0 (TQ3A.230605.010.A1, Jun 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/raven-ota-tq3a.230605.010.a1-b3f14d4b.zip",
+    "sha256": "b3f14d4bccafbcda7104cf935d8eaf7f3a326b7bb1205fa90eabdf7568b32fb0"
+  },
+  {
     "device": "barbet",
     "version": "11.0.0 (RD2A.210605.006, Jun 2021, JP carriers)",
     "url": "https://dl.google.com/dl/android/aosp/barbet-ota-rd2a.210605.006-e56baaf5.zip",
@@ -868,6 +1072,42 @@
     "version": "13.0.0 (TQ2A.230305.008.C1, Mar 2023)",
     "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230305.008.c1-797c94bc.zip",
     "sha256": "797c94bc321042c0370ab8de705aa1f79f6dd78e517016bb1d8d84329d9147de"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ2A.230405.003, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230405.003-29870000.zip",
+    "sha256": "29870000204584b6c92ec2ae835cdd727ab45d0971423ff50b4c68228812374b"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ2A.230405.003.A2, Apr 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230405.003.a2-054a9371.zip",
+    "sha256": "054a937169978f2e3543f33590421f46b5f188392a4b6688a3c7eccca73fc528"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ2A.230405.003.B2, Apr 2023, Telus)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230405.003.b2-fbe749e9.zip",
+    "sha256": "fbe749e9887f58b30ed07e44834b1cf9941befd2b3fa648cd28232792bdf2f7a"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230505.002-9594d336.zip",
+    "sha256": "9594d336a605c2b927a50a043a02798e1968bb0c1cdd9a337b723e825186ac4c"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ2A.230505.002.A1, May 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq2a.230505.002.a1-74a3b622.zip",
+    "sha256": "74a3b622c8984b9d475f8763bce1f362fe0e2bee22e42999ae9a59ae13dee8c1"
+  },
+  {
+    "device": "barbet",
+    "version": "13.0.0 (TQ3A.230605.011, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/barbet-ota-tq3a.230605.011-ddb7b951.zip",
+    "sha256": "ddb7b9516ad5dc305e79d18d79e89ba9eab8729dc4578b5b56dd7c5bb27b4515"
   },
   {
     "device": "redfin",
@@ -1170,6 +1410,42 @@
     "sha256": "2211e7b754652d09297f9e4fbe58033c685ef3661eadda6e8e1a60db5f7907e6"
   },
   {
+    "device": "redfin",
+    "version": "13.0.0 (TQ2A.230405.003, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq2a.230405.003-9991df69.zip",
+    "sha256": "9991df69de347eecbaf027d49e021e717882d343fae1e63aaacd1eadbca6a839"
+  },
+  {
+    "device": "redfin",
+    "version": "13.0.0 (TQ2A.230405.003.A2, Apr 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq2a.230405.003.a2-3f56abc3.zip",
+    "sha256": "3f56abc31b0149efcacfdeef073bda561f68c9dc48208d8fd352e8ca468e3d92"
+  },
+  {
+    "device": "redfin",
+    "version": "13.0.0 (TQ2A.230405.003.B2, Apr 2023, Telus)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq2a.230405.003.b2-b7ec4c63.zip",
+    "sha256": "b7ec4c634befd1af85070bf6c2987888404a7c8d0ae7d16effca1e59b345f010"
+  },
+  {
+    "device": "redfin",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq2a.230505.002-453fe2d1.zip",
+    "sha256": "453fe2d1207660ec19f504278487234b0dea24d32227ccb891fb4d18c2ad84b0"
+  },
+  {
+    "device": "redfin",
+    "version": "13.0.0 (TQ2A.230505.002.A1, May 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq2a.230505.002.a1-c1fa91bb.zip",
+    "sha256": "c1fa91bb988462b8ff831a4a0bf372d0a162340f5493a9d9c06c04317514aa7c"
+  },
+  {
+    "device": "redfin",
+    "version": "13.0.0 (TQ3A.230605.011, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/redfin-ota-tq3a.230605.011-0c154cfb.zip",
+    "sha256": "0c154cfbf0b34d6254e1808f91627be38a12e7a4ab31dbcc12a7822890daf587"
+  },
+  {
     "device": "bramble",
     "version": "11.0.0 (RD1A.200810.020, Oct 2020, AU &amp; JP carriers)",
     "url": "https://dl.google.com/dl/android/aosp/bramble-ota-rd1a.200810.020-b52f870c.zip",
@@ -1464,6 +1740,42 @@
     "sha256": "a925dd09c8d613d46cf72677c16f4fadee18bc21734d57047c6ccf31f672507b"
   },
   {
+    "device": "bramble",
+    "version": "13.0.0 (TQ2A.230405.003, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq2a.230405.003-222842df.zip",
+    "sha256": "222842dfa10fa3470e14eb6e26dc277be84bb66ddf6103451a466bec1d0081dd"
+  },
+  {
+    "device": "bramble",
+    "version": "13.0.0 (TQ2A.230405.003.A2, Apr 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq2a.230405.003.a2-b44ae13e.zip",
+    "sha256": "b44ae13e810b5e6465367b87d13cf03cb21616979339b5df7a0b58c17e888930"
+  },
+  {
+    "device": "bramble",
+    "version": "13.0.0 (TQ2A.230405.003.B2, Apr 2023, Telus)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq2a.230405.003.b2-51976e93.zip",
+    "sha256": "51976e932bb7f17af9cfefeb2d9c57760540899ca5385057f65ca799c17c1be2"
+  },
+  {
+    "device": "bramble",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq2a.230505.002-11bb2014.zip",
+    "sha256": "11bb2014e60f6e5a65d52369da6a3582adeccb1e130da3c36ab3d26cae948971"
+  },
+  {
+    "device": "bramble",
+    "version": "13.0.0 (TQ2A.230505.002.A1, May 2023, T-Mobile, T-Mobile MVNOs)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq2a.230505.002.a1-8ca3c446.zip",
+    "sha256": "8ca3c44653ab636926205b82b6f940911a289148058ab370100f67905386fbcd"
+  },
+  {
+    "device": "bramble",
+    "version": "13.0.0 (TQ3A.230605.011, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/bramble-ota-tq3a.230605.011-ec75e422.zip",
+    "sha256": "ec75e422d2f26a4d692551cc52440e65122ef1739d1aea3be36f8e4aeb61ba1a"
+  },
+  {
     "device": "sunfish",
     "version": "10.0.0 (QD4A.200317.024.A1, May 2020, JP carriers and Verizon)",
     "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-qd4a.200317.024.a1-19a394ae.zip",
@@ -1726,6 +2038,30 @@
     "version": "13.0.0 (TQ2A.230305.008.C1, Mar 2023)",
     "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-tq2a.230305.008.c1-174fd16b.zip",
     "sha256": "174fd16b47ef994ea8f3cb0f3fb456df2654b0aa1f9ea6fb8e54e5c6319f2601"
+  },
+  {
+    "device": "sunfish",
+    "version": "13.0.0 (TQ2A.230405.003, Apr 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-tq2a.230405.003-4cb6ae96.zip",
+    "sha256": "4cb6ae96e1d9dd2db6334da39ba9dcc43eb296e6f4c626eb99ce6b9e391bf2cc"
+  },
+  {
+    "device": "sunfish",
+    "version": "13.0.0 (TQ2A.230405.003.B2, Apr 2023, Telus)",
+    "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-tq2a.230405.003.b2-bc2629d6.zip",
+    "sha256": "bc2629d615c745f59eb2b93b3a70d5aa87bcd8dfb10c73b756eb3af8dcb9417d"
+  },
+  {
+    "device": "sunfish",
+    "version": "13.0.0 (TQ2A.230505.002, May 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-tq2a.230505.002-3fc1ed1e.zip",
+    "sha256": "3fc1ed1e0940709bb63cb1a8b71087165d48b3a26c9a40a321b6f35454d69f57"
+  },
+  {
+    "device": "sunfish",
+    "version": "13.0.0 (TQ3A.230605.011, Jun 2023)",
+    "url": "https://dl.google.com/dl/android/aosp/sunfish-ota-tq3a.230605.011-a27fab47.zip",
+    "sha256": "a27fab4704e644203ddb860b4e4abf1eaed6166b6c4ac5bdd42f79c8217738bc"
   },
   {
     "device": "coral",

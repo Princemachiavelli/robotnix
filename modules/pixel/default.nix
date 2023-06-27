@@ -38,6 +38,7 @@ let
     bluejay = { family = "bluejay"; name = "Pixel 6a"; };
     panther = { family = "pantah"; name = "Pixel 7"; };
     cheetah = { family = "pantah"; name = "Pixel 7 Pro"; };
+    tangorpro = { family = "tangorpro"; name = "Pixel Tablet"; };
   };
 
   # Make a uuid based on some string data

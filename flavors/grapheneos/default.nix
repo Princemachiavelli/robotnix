@@ -10,7 +10,7 @@ let
   upstreamParams = import ./upstream-params.nix;
   grapheneOSRelease = "${config.apv.buildID}.${upstreamParams.buildNumber}";
 
-  phoneDeviceFamilies = [ "crosshatch" "bonito" "coral" "sunfish" "redfin" "barbet" "bluejay" "pantah" ];
+  phoneDeviceFamilies = [ "crosshatch" "bonito" "coral" "sunfish" "redfin" "barbet" "bluejay" "pantah" "tangorpro" ];
   supportedDeviceFamilies = phoneDeviceFamilies ++ [ "generic" ];
   kernelPrefix = if config.androidVersion >= 13 then "kernel/android" else "kernel/google";
 
@@ -27,6 +27,7 @@ let
     "bluejay" = "bluejay";
     "panther" = "pantah";
     "cheetah" = "pantah";
+    "tangorpro" = "tangorpro";
   }.${config.device} or config.deviceFamily;
   kernelSourceRelpath = "${kernelPrefix}/${kernelRepoName}";
   kernelSources = lib.mapAttrs'
@@ -55,9 +56,9 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
 
     # TODO: re-add the legacy devices
     apv.enable = mkIf (config.androidVersion <= 12 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
-    apv.buildID = mkDefault (if (elem config.device [ "sunfish" "bramble" "redfin" "barbet" "oriole" "raven" "bluejay" "panther" "cheetah" ])
-    then "TQ2A.230505.002"
-    else "TP1A.221005.002.B2");
+    apv.buildID = {
+      "tangorpro" = "TQ3A.230605.009.A1";
+    }.${config.device};
     adevtool.enable = mkIf (config.androidVersion >= 13 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
     adevtool.buildID = config.apv.buildID;
 
@@ -108,6 +109,7 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
     source.dirs."${kernelPrefix}/raviole".enable = false;
     source.dirs."${kernelPrefix}/bluejay".enable = false;
     source.dirs."${kernelPrefix}/pantah".enable = false;
+    source.dirs."${kernelPrefix}/tangorpro".enable = false;
 
     kernel.enable = mkDefault (elem config.deviceFamily phoneDeviceFamilies);
 

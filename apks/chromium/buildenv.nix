@@ -21,6 +21,6 @@ buildFHSUserEnv {
     ncurses5
     gcc
     clang
-    libgcc # Needed by their clang toolchain
+    gcc.cc.libgcc # Needed by their clang toolchain
   ];
 }

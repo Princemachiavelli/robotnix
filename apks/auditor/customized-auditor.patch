@@ -76,6 +76,8 @@ index c79a860..d8fbb1d 100644
 +                    new DeviceInfo(R.string.device_pixel_5, 3, 4, false /* uses new API */, true, R.string.os_robotnix))
 +            .put("@barbet@",
 +                    new DeviceInfo(R.string.device_pixel_5a, 3, 4, false /* uses new API */, true, R.string.os_robotnix))
++            .put("@tangorpro@",
++                    new DeviceInfo(R.string.device_pixel_tablet, 200, 200, false, true, R.string.os_robotnix))
              .build();
      private static final ImmutableMap<String, DeviceInfo> fingerprintsStock = ImmutableMap
              .<String, DeviceInfo>builder()
@@ -104,6 +106,8 @@ index c79a860..d8fbb1d 100644
 +                    new DeviceInfo(R.string.device_pixel_5, 4, 41, false /* uses new API */, true, R.string.os_robotnix))
 +            .put("@barbet@",
 +                    new DeviceInfo(R.string.device_pixel_5a, 4, 41, false /* uses new API */, true, R.string.os_robotnix))
++            .put("@tangorpro@",
++                    new DeviceInfo(R.string.device_pixel_tablet, 100, 100, false, true, R.string.os_robotnix))
              .build();
      private static final ImmutableMap<String, DeviceInfo> fingerprintsStrongBoxStock = ImmutableMap
              .<String, DeviceInfo>builder()

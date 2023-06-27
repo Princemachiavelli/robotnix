@@ -311,8 +311,8 @@ in
       ];
 
       build = rec {
-        postRaviole = lib.elem config.deviceFamily [ "raviole" "bluejay" "pantah" ];
-        postPantah = lib.elem config.deviceFamily [ "pantah" ];
+        postRaviole = lib.elem config.deviceFamily [ "raviole" "bluejay" "pantah" "tangorpro" ];
+        postPantah = lib.elem config.deviceFamily [ "pantah" "tangorpro" ];
         androidBuilderToolkit =
           let
             requiredNativeBuildInputs = [ config.build.env fakeuser pkgs.utillinux ];

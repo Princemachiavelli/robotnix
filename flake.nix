@@ -2,40 +2,79 @@
   description = "Build Android (AOSP) using Nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-    nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:Princemachiavelli/nixpkgs/jhoffer-23.05";
+    #nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     androidPkgs.url = "github:tadfisher/android-nixpkgs/stable";
     androidPkgs.inputs.nixpkgs.follows = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, androidPkgs, ... }@inputs:
-    let
-      pkgs = import ./pkgs/default.nix {
-        inherit inputs;
-      };
-      python3-local = (pkgs.python39.withPackages (p: with p; [ mypy flake8 pytest ]));
-    in
-    rec {
-      # robotnixSystem evaluates a robotnix configuration
-      lib.robotnixSystem = configuration: import ./default.nix {
-        inherit configuration pkgs;
-      };
-
+  outputs = { self, nixpkgs, flake-utils, androidPkgs, ... }@inputs:
+    {
+      nixosModule = import ./nixos; # Contains all robotnix nixos modules
+      nixosModules.attestation-server = import ./nixos/attestation-server/module.nix;
+      overlays.default = import ./pkgs/default.nix { inherit inputs; };
       defaultTemplate = {
         path = ./template;
         description = "A basic robotnix configuration";
       };
+    } // (with flake-utils.lib; eachSystem [ system.x86_64-linux ] (system:
+    let
+      pkgs = import nixpkgs {
+        inherit system self;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+                "python-2.7.18.6"
+          ];
+        };
+        overlays = [
+          self.overlays.default
+        ];
+      };
+      python3-local = (pkgs.python311.withPackages (p: with p; [ mypy flake8 pytest ]));
+      
+      lib.robotnixSystem = configuration: import ./default.nix {
+          inherit configuration pkgs;
+      };
+      
+      exampleImages = (pkgs.lib.listToAttrs (map
+        (device: {
+          name = device;
+          value = lib.robotnixSystem {
+            inherit device;
+            flavor = "grapheneos";
+            apv.enable = false;
+            adevtool.hash = "sha256-ea/N1dTv50w7r2X2XKIunNxJmveVjfg9NomISzNWQ/E=";
+            #deviceFamily = "redfin";
+            cts-profile-fix.enable = true;
+            signing = {
+              enable = true;
+              keyStorePath = ./keys;
+              sopsDecrypt = {
+                enable = true;
+                sopsConfig = ./.sops.yaml;
+                #key = /home/jhoffer/.config/sops/age/robonix.txt;
+                key = ./.keystore-private-keys.txt;
+                keyType = "age";
+              };
+            };
+          };
+        }) [ "redfin" "bramble" "oriole" "raven" "bluejay" "panther" "cheetah" "tangorpro" ]));
 
-      nixosModule = import ./nixos; # Contains all robotnix nixos modules
-      nixosModules.attestation-server = import ./nixos/attestation-server/module.nix;
+      in rec {
+      # robotnixSystem evaluates a robotnix configuration
 
-      packages.x86_64-linux = {
+
+
+      packages = {
         manual = (import ./docs { inherit pkgs; }).manual;
       } // (pkgs.lib.mapAttrs
         (device: robotnixSystem: robotnixSystem.config.build.debugEnterEnv)
         exampleImages);
 
-      devShells.x86_64-linux = {
+      devShells = {
         default = pkgs.mkShell {
           name = "robotnix-scripts";
           nativeBuildInputs = with pkgs; [
@@ -61,29 +100,6 @@
       } // (pkgs.lib.mapAttrs
         (device: robotnixSystem: robotnixSystem.config.build.debugShell)
         exampleImages);
-      exampleImages = (pkgs.lib.listToAttrs (map
-        (device: {
-          name = device;
-          value = lib.robotnixSystem {
-            inherit device;
-            flavor = "grapheneos";
-            apv.enable = false;
-            #adevtool.hash = "sha256-aA54o2FPfI+9iDLiUaGJAqMzUuNyWwCuWOoa1lADKuM=";
-            adevtool.hash = "sha256-baXB2Dd24Qd66bWk6+wh8Jr7lLKPVIPLp92YquKWQ68=";
-            #deviceFamily = "redfin";
-            cts-profile-fix.enable = true;
-            signing = {
-              enable = true;
-              keyStorePath = ./keys;
-              sopsDecrypt = {
-                enable = true;
-                sopsConfig = ./.sops.yaml;
-                #key = /home/jhoffer/.config/sops/age/robonix.txt;
-                key = ./.keystore-private-keys.txt;
-                keyType = "age";
-              };
-            };
-          };
-        }) [ "redfin" "bramble" "oriole" "raven" "bluejay" "panther" "cheetah" ]));
-    };
+    }
+  ));
 }

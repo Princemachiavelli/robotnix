@@ -2,14 +2,10 @@
 # SPDX-FileCopyrightText: 2020 Daniel Fullmer and robotnix contributors
 # SPDX-License-Identifier: MIT
 
-from __future__ import print_function
-
 import argparse
-import json
 import os
 import re
 import shutil
-import string
 import subprocess
 import sys
 
@@ -24,7 +20,7 @@ NO_SUBMODULES = [
 ]
 
 def hash_path(path):
-    sha256 = subprocess.check_output(["nix", "hash-path", "--base32", "--type", "sha256", path]).decode().strip()
+    sha256 = subprocess.check_output(["nix", "hash", "path", "--base32", "--type", "sha256", path]).decode().strip()
     if re.match(r'[0-9a-z]{52}', sha256) == None:
         raise ValueError('bad hash %s' % sha256)
     return sha256
@@ -172,8 +168,8 @@ def make_vendor_file(chromium_version, target_os):
                         shutil.rmtree(wholepath, ignore_errors=True)
                         if not os.path.isdir(os.path.dirname(wholepath)):
                             os.makedirs(os.path.dirname(wholepath))
-                        #shutil.copytree(memoized_path, wholepath, copy_function=os.link) # copy_function isn't available in python 2
-                        subprocess.check_call(["cp", "-al", memoized_path, wholepath])
+                        shutil.copytree(memoized_path, wholepath, copy_function=os.link)
+                        #subprocess.check_call(["cp", "-al", memoized_path, wholepath])
 
                     if os.path.exists(os.path.join(memoized_path, "DEPS")): # Need to recurse
                         need_another_iteration = True

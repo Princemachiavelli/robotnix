@@ -4,8 +4,8 @@ let
   inherit (lib)
     mkIf mkMerge mkDefault;
 
-  postRedfin = lib.elem config.deviceFamily [ "redfin" "barbet" "raviole" "bluejay" "pantah" ];
-  postRaviole = lib.elem config.deviceFamily [ "raviole" "bluejay" "pantah" ];
+  postRedfin = lib.elem config.deviceFamily [ "redfin" "barbet" "raviole" "bluejay" "pantah" "tangorpro" ];
+  postRaviole = lib.elem config.deviceFamily [ "raviole" "bluejay" "pantah" "tangorpro" ];
   clangVersion = if postRaviole then "r450784e" else "r416183b";
   buildScriptFor = {
     "coral" = "build/build.sh";
@@ -14,6 +14,7 @@ let
     "raviole" = "build_slider.sh";
     "bluejay" = "build_bluejay.sh";
     "pantah" = "build_cloudripper.sh";
+    "tangorpro" = "build_tangorpro.sh";
   };
   buildScript = if (config.androidVersion >= 13) then buildScriptFor.${config.deviceFamily} else "build.sh";
   realBuildScript = if (config.androidVersion >= 13) then "build/build.sh" else "build.sh";
@@ -58,6 +59,7 @@ let
     "bluejay" = "bluejay";
     "panther" = "pantah";
     "cheetah" = "pantah";
+    "tangorpro" = "tangorpro";
   }.${config.device} or config.deviceFamily;
   sourceRelpath = "${kernelPrefix}/${repoName}";
 

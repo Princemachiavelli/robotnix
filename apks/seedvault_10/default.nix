@@ -8,15 +8,16 @@ let
 in
 buildGradle rec {
   name = "Seedvault-${version}.apk";
-  version = "2020-10-24";
+  version = "11-2.3";
 
   envSpec = ./gradle-env.json;
 
   src = (fetchFromGitHub {
     owner = "stevesoltys";
+    owner = "seedvault-app";
     repo = "seedvault";
-    rev = "98e34a1eb3c85ad890d49c1199fee6d56269ba7e"; # From android10 branch
-    sha256 = "059674xv1fmnsnxd5qay28pb1n6jzl6g17ykhcw7b93rpydq3r4g";
+    rev = "11-2.3"; 
+    sha256 = "";
   });
 
   gradleFlags = [ "assembleRelease" ];
