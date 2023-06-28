@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020 Daniel Fullmer and robotnix contributors
 # SPDX-License-Identifier: MIT
 {
- pkgs ? import ../pkgs {},
+ pkgs,
  manifest, rev, sha256
 # Optional parameters:
 , repoRepoURL ? "https://github.com/danielfullmer/tools_repo"
