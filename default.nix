@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT
 
 { configuration
-, pkgs ? (import ./pkgs { })
-, lib ? pkgs.lib
+, pkgs 
+, lib 
 }:
 
 let

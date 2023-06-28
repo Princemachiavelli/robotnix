@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2021 Daniel Fullmer and robotnix contributors
 # SPDX-License-Identifier: MIT
 
-{ pkgs ? (import ./pkgs {}) }:
+{ pkgs }:
 
 let
   lib = pkgs.lib;

@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2021 Daniel Fullmer
 # SPDX-License-Identifier: MIT
 
-{ pkgs ? import ./pkgs {} }:
+{ pkgs }:
 
 # Easier entrypoint to build android components individually
 # The components.json list is just used as a convenient list of components.

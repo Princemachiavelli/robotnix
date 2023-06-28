@@ -37,6 +37,7 @@
       
       lib.robotnixSystem = configuration: import ./default.nix {
           inherit configuration pkgs;
+          lib = pkgs.lib;
       };
       
       exampleImages = (pkgs.lib.listToAttrs (map
