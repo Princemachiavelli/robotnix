@@ -4,7 +4,12 @@ let
   cfg = config.adevtool;
   adevtoolPkg = pkgs.adevtool config.source.dirs."vendor/adevtool".src;
   adevtool = "${adevtoolPkg}/bin/adevtool";
-  fetchImage = { hash ? lib.fakeSha256, device, buildID }:
+  adevtoolHash = {
+    "felix" = {
+      "TQ3C.230605.010.C1" = "sha256-X00bRj7yC+0mvglP/Lkw16G5Ql3xogSxePvgWq9RpFM=";
+    };
+  };
+  fetchImage = { device, buildID }:
     pkgs.stdenv.mkDerivation {
       name = "fetch-vendor-firmware";
       src = pkgs.emptyDirectory;
@@ -16,7 +21,7 @@ let
 
       outputHashMode = "recursive";
       outputHashAlgo = "sha256";
-      outputHash = hash;
+      outputHash = adevtoolHash."${device}"."${buildID}";
     };
   sepolicyDirNames = lib.filter (d: lib.hasSuffix "-sepolicy" d) (lib.attrNames config.source.dirs);
   unpackPhase =
@@ -47,6 +52,7 @@ let
         set -e
         cp ${img}/${device}-${lib.toLower buildID}-*.zip img.zip
         cp ${img}/${device}-ota-${lib.toLower buildID}-*.zip ota.zip
+        ls -lha vendor/state/
 
         ${adevtool} generate-all \
           vendor/adevtool/config/${device}.yml \
@@ -84,17 +90,12 @@ in
       default = config.apv.buildID;
     };
 
-    hash = mkOption {
-      type = types.str;
-      description = "Downloaded sha256 hash of the ota files. Unset to redownload.";
-      default = lib.fakeSha256;
-    };
   };
   config = {
     build.adevtool = rec {
       img = fetchImage {
         inherit (config) device;
-        inherit (cfg) hash buildID;
+        inherit (cfg) buildID;
       };
       files = unpackImg {
         inherit (config) device deviceFamily;

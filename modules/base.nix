@@ -235,7 +235,9 @@ in
     };
   };
 
-  config = mkMerge [
+  config = 
+#    assert (lib.assertMsg (config.anroidVersion < 13) "Only Android >= 13 Supported.");
+  mkMerge [
     (mkIf (lib.elem config.device [ "arm64" "arm" "x86" "x86_64" ]) {
       # If this is a generic build for an arch, just set the arch as well
       arch = mkDefault config.device;

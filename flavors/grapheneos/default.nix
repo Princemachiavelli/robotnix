@@ -8,11 +8,11 @@ let
     mkIf mkMerge mkDefault mkForce;
 
   upstreamParams = import ./upstream-params.nix;
-  grapheneOSRelease = "${config.apv.buildID}.${upstreamParams.buildNumber}";
+  grapheneOSRelease = "${config.adevtool.buildID}.${upstreamParams.buildNumber}";
 
   phoneDeviceFamilies = [ "crosshatch" "bonito" "coral" "sunfish" "redfin" "barbet" "bluejay" "pantah" "tangorpro" "felix" ];
   supportedDeviceFamilies = phoneDeviceFamilies ++ [ "generic" ];
-  kernelPrefix = if config.androidVersion >= 13 then "kernel/android" else "kernel/google";
+  kernelPrefix = "kernel/android";
 
   kernelRepoName = {
     "sargo" = "crosshatch";
@@ -55,14 +55,11 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
     };
     source.dirs = (lib.importJSON (./. + "/repo-${grapheneOSRelease}.json") // kernelSources);
 
-    # TODO: re-add the legacy devices
-    apv.enable = mkIf (config.androidVersion <= 12 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
-    apv.buildID = {
+    adevtool.enable = mkDefault true; 
+    adevtool.buildID = {
       "tangorpro" = "TQ3A.230605.009.A1";
       "felix" = "TQ3C.230605.010.C1";
     }.${config.device};
-    adevtool.enable = mkIf (config.androidVersion >= 13 && elem config.deviceFamily phoneDeviceFamilies) (mkDefault true);
-    adevtool.buildID = config.apv.buildID;
 
     # Not strictly necessary for me to set these, since I override the source.dirs above
     source.manifest.url = mkDefault "https://github.com/GrapheneOS/platform_manifest.git";
@@ -90,7 +87,7 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
     ];
 
     # hack to make sure the out directory remains writeable after copying files/directories from /nix/store mounted sources
-    source.dirs."prebuilts/build-tools".postPatch = mkIf (config.androidVersion >= 13) ''
+    source.dirs."prebuilts/build-tools".postPatch = ''
       pushd path/linux-x86
       mv cp .cp-wrapped
       cp ${pkgs.substituteAll { src = ./fix-perms.sh; inherit (pkgs) bash; }} cp
@@ -112,6 +109,7 @@ mkIf (config.flavor == "grapheneos") (mkMerge [
     source.dirs."${kernelPrefix}/bluejay".enable = false;
     source.dirs."${kernelPrefix}/pantah".enable = false;
     source.dirs."${kernelPrefix}/tangorpro".enable = false;
+    source.dirs."${kernelPrefix}/felix".enable = false;
 
     kernel.enable = mkDefault (elem config.deviceFamily phoneDeviceFamilies);
 

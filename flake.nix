@@ -46,9 +46,11 @@
             inherit device;
             flavor = "grapheneos";
             apv.enable = false;
-            adevtool.hash = "sha256-ea/N1dTv50w7r2X2XKIunNxJmveVjfg9NomISzNWQ/E=";
+            #adevtool.hash = "sha256-ea/N1dTv50w7r2X2XKIunNxJmveVjfg9NomISzNWQ/E=";
             #deviceFamily = "redfin";
             cts-profile-fix.enable = true;
+            apps.vanadium.enable = false;
+            webview.vanadium.enable = false;
             signing = {
               enable = true;
               keyStorePath = ./keys;

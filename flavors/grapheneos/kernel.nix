@@ -17,19 +17,19 @@ let
     "tangorpro" = "build_tangorpro.sh";
     "felix" = "build_felix.sh";
   };
-  buildScript = if (config.androidVersion >= 13) then buildScriptFor.${config.deviceFamily} else "build.sh";
-  realBuildScript = if (config.androidVersion >= 13) then "build/build.sh" else "build.sh";
-  kernelPrefix = if (config.androidVersion >= 13) then "kernel/android" else "kernel/google";
-  grapheneOSRelease = "${config.apv.buildID}.${config.buildNumber}";
+  buildScript = buildScriptFor.${config.deviceFamily};
+  realBuildScript ="build/build.sh";
+  kernelPrefix = "kernel/android";
+  grapheneOSRelease = "${config.adevtool.buildID}.${config.buildNumber}";
 
   buildConfigVar = "private/msm-google/build.config.${if config.deviceFamily != "redfin" then config.deviceFamily else "redbull"}${lib.optionalString (config.deviceFamily == "redfin") ".vintf"}";
   subPaths = prefix: (lib.filter (name: (lib.hasPrefix prefix name)) (lib.attrNames config.source.dirs));
   kernelSources = subPaths sourceRelpath;
   unpackSrc = name: src: ''
     shopt -s dotglob
-    rm -rf ${name}
-    mkdir -p $(dirname ${name})
-    cp -r ${src} ${name}
+    #rm -rf ${name}
+    mkdir -p "${name}"
+    cp -fr "${src}/." ${name}
   '';
   linkSrc = name: c: lib.optionalString (lib.hasAttr "linkfiles" c) (lib.concatStringsSep "\n" (map
     ({ src, dest }: ''
@@ -48,8 +48,7 @@ let
     (lib.mapAttrsToList unpackCmd (lib.filterAttrs (name: src: (lib.elem name sources)) config.source.dirs)));
 
   # the kernel build scripts deeply assume clang as of android 13
-  llvm = pkgs.llvmPackages_13;
-  stdenv = if (config.androidVersion >= 13) then pkgs.stdenv else pkgs.stdenv;
+  stdenv = pkgs.llvmPackages_13.stdenv; 
 
   repoName = {
     "sargo" = "crosshatch";
@@ -134,19 +133,16 @@ let
 
     # TODO: add KBUILD env vars for pre-redfin on android 13
     buildPhase =
-      let
-        useCodenameArg = config.androidVersion <= 12;
-      in
       ''
         set -eo pipefail
         ${preBuild}
 
         ${if postRaviole
-          then "LTO=full BUILD_AOSP_KERNEL=1 cflags='--sysroot /usr '"
+          #then "LTO=full BUILD_AOSP_KERNEL=1 cflags='--sysroot /usr '"
+          then "LTO=none BUILD_AOSP_KERNEL=1 cflags='--sysroot /usr '"
           else "BUILD_CONFIG=${buildConfigVar} HOSTCFLAGS='--sysroot /usr '"} \
           LD_LIBRARY_PATH="/usr/lib/:/usr/lib32/" \
           ./${buildScript} \
-          ${lib.optionalString useCodenameArg builtKernelName}
 
         ${postBuild}
       '';
